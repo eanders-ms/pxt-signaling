@@ -2,7 +2,9 @@
 namespace signaling {
     const callbacks: { [sig: string]: ((arg: string) => void)[] } = {};
 
-    export function onSignalInternal(signal: string, callback: (arg: string) => void): () => void {
+    //% block
+    //% blockId=signaling_on_signal
+    export function onSignal(signal: string, callback: (arg: string) => void): () => void {
         if (!callbacks[signal]) {
             callbacks[signal] = [];
         }
@@ -23,11 +25,7 @@ namespace signaling {
         return () => handlers[index] = undefined;
     }
 
-    //% blockId=signaling_on_signal
-    export function onSignal(signal: string, callback: (arg: string) => void): void {
-        onSignalInternal(signal, callback);
-    }
-
+    //% block
     //% blockId=signaling_send_signal
     export function sendSignal(signal: string, arg: string): void {
         const handlers = callbacks[signal];
