@@ -31,7 +31,7 @@ namespace signaling {
         onSignalInternal(signal, callback);
     }
 
-    //% block
+    //% block="send signal $signal|arg $arg"
     //% blockId=signaling_send_signal
     export function sendSignal(signal: string, arg: string): void {
         const handlers = callbacks[signal];
