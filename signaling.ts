@@ -1,4 +1,4 @@
-//% block="Signaling" color="#00c489"
+//% block="Signaling" color="#c40089"
 namespace signaling {
     const callbacks: { [sig: string]: ((arg: string) => void)[] } = {};
 
